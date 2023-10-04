@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Banner",
+        "data": {
+            "id": 0,
+            "className": "something"
+        }
+    },
+    {
+        "name": "Catalogue",
+        "data": {
+            "className": ""
+        }
+    },
+    {
+        "name": "Category",
+        "data": {
+            "className": ""
+        }
+    }
+]

@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import componentMapping from './components/Components';
+
+// TODO: Needed to  fetched from server, since CORS isn't allowing so added as import
+import './theme.css';
+import theme from './theme.json';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {theme.map((key, index) => {
+        const Component = componentMapping[key.name];
+        return <Component key={index} id={key?.data?.id} className={key?.data?.className}/>
+      })}
     </div>
   );
 }
