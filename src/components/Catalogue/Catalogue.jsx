@@ -1,3 +1,5 @@
+import "./CatalogueStyle.css";
+
 const Catalogue = (props) => {
   const data = [
     {
@@ -20,13 +22,14 @@ const Catalogue = (props) => {
   return (
     <div
       id={props?.id}
-      className={props?.className}>
-      <h1>Catalogue</h1>
-      <div>
+      className={props?.className || "catalogue-main-container"}
+    >
+      <h1 className="catalogue-heading">Catalogue</h1>
+      <div className="catalogue-container">
         {data.map((item, index) => (
-          <div key={index}>
-            <img src={item.link} alt={item.name} />
-            <h3>{item.name}</h3>
+          <div key={index} className="catalogue-item-container">
+            <img src={item.link} alt={item.name} className="catalogue-image" />
+            <h3 className="catalogue-item-name">{item.name}</h3>
           </div>
         ))}
       </div>

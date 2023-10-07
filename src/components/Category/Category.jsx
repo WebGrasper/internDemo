@@ -1,3 +1,5 @@
+import "./CategoryStyle.css";
+
 const Category = (props) => {
   const data = [
     {
@@ -28,16 +30,16 @@ const Category = (props) => {
   return (
     <div
       id={props?.id}
-      className={props?.className}
+      className={props?.className || "category-main-container"}
     >
-      <h1>Best of Fashion</h1>
-      <div>
+      <h1 className="category-heading">Best of Fashion</h1>
+      <div className="category-container">
         {data.map((item, index) => (
-          <div key={index}>
-            <img src={item.link} alt={item.name} />
-            <p>{item.name}</p>
-            <p>₹{item.price}</p>
-            <p>₹{item.oldPrice}</p>
+          <div key={index} className="category-item-container">
+            <img src={item.link} alt={item.name} className="category-image" />
+            <p className="category-item-name">{item.name}</p>
+            <p className="category-item-price">₹{item.price}</p>
+            <p className="category-item-old-price">₹{item.oldPrice}</p>
           </div>
         ))}
       </div>

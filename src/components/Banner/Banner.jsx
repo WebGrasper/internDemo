@@ -1,3 +1,4 @@
+import "./BannerStyle.css";
 import React, { useState, useEffect } from "react";
 
 const Banner = (props) => {
@@ -19,18 +20,21 @@ const Banner = (props) => {
   });
 
   return (
-      <div id={props?.id} className={props?.className}>
-        <div>
+      <div className="slider-container">
+        <div
+          className="slider"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
           {images.map((image, index) => (
-            <div key={index}>
+            <div key={index} className="slide">
               <img src={image} alt={`Image ${index + 1}`} />
             </div>
           ))}
         </div>
-        <button onClick={prevSlide}>
+        <button className="prev" onClick={prevSlide}>
           Previous
         </button>
-        <button onClick={nextSlide}>
+        <button className="next" onClick={nextSlide}>
           Next
         </button>
       </div>
