@@ -10,6 +10,7 @@ function App() {
     <div>
       {theme.map((key, index) => {
         const Component = componentMapping[key.name];
+        console.log(Component);
         return <Component key={index} id={key?.data?.id} className={key?.data?.className}/>
       })}
     </div>
