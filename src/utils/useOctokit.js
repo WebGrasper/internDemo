@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { octokit } from './octokit';
-export default function useOctokit(temppath) {
+export default function useOctokit(temppath, convertToJSON = true) {
     const [code, setCode] = useState([]);
     const [path, setPath] = useState(temppath);
 
@@ -15,7 +15,8 @@ export default function useOctokit(temppath) {
                 .then(res => {
                     const encoded = res.data.content;
                     let decoded = atob(encoded);
-                    decoded = JSON.parse(decoded);
+                    if (convertToJSON === true)
+                        decoded = JSON.parse(decoded);
                     setCode(decoded);
                 })
                 .catch(err => console.log(err));

@@ -1,7 +1,11 @@
-import "./BannerStyle.css";
 import React, { useState, useEffect } from "react";
+import useOctokit from "../../utils/useOctokit";
+import { applyStyle } from "../Components";
 
 const Banner = (props) => {
+
+  const [style] = useOctokit(props?.themeName + "/BannerStyle.css", false);
+
   const images = [
     "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/ee78de50f9dbe993.jpg?q=20",
     "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/dd0c71d328eabf5c.jpg?q=20",
@@ -15,6 +19,7 @@ const Banner = (props) => {
     setCurrentIndex((currentIndex - 1 + images.length) % images.length);
   };
   useEffect(() => {
+    applyStyle(style);
     const intervalId = setInterval(nextSlide, 3000);
     return () => clearInterval(intervalId);
   });

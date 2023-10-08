@@ -1,6 +1,13 @@
-import "./CategoryStyle.css";
+import { useEffect } from "react";
+import useOctokit from "../../utils/useOctokit";
+import { applyStyle } from "../Components";
 
 const Category = (props) => {
+
+  const [style] = useOctokit(props?.themeName + "/CategoryStyle.css", false);
+  useEffect(() => {
+    applyStyle(style);
+  })
   const data = [
     {
       link: "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/s/m/y/m-st1-vebnor-original-imagn69kcwphkfrf.jpeg",

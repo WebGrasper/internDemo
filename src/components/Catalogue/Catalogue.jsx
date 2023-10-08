@@ -1,6 +1,14 @@
-import "./CatalogueStyle.css";
+import { useEffect } from "react";
+import useOctokit from "../../utils/useOctokit";
+import { applyStyle } from "../Components";
 
 const Catalogue = (props) => {
+  const [style] = useOctokit(props?.themeName + "/CatalogueStyle.css", false);
+
+  useEffect(() => {
+    applyStyle(style || "");
+  })
+
   const data = [
     {
       link: "https://bit.ly/48L0uSn",
@@ -23,7 +31,7 @@ const Catalogue = (props) => {
     <div
       id={props?.id}
       className={props?.className || "catalogue-main-container"}
-    >
+      >
       <h1 className="catalogue-heading">Catalogue</h1>
       <div className="catalogue-container">
         {data.map((item, index) => (
