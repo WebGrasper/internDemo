@@ -8,13 +8,13 @@ function App() {
   const [code, updateCode] = useOctokit("themes.json");
   useEffect(() => {
     if (code.length > 0) {
-      if (typeof code[0] === "string") {
-        updateCode(code[0] + "/theme.json");
-        setThemeName(code[0]);
+      if (typeof code[1] === "string") {
+        updateCode(code[1] + "/theme.json");
+        setThemeName(code[1]);
 
       }
       
-      if (typeof code[0] === "object")
+      if (typeof code[1] === "object")
         setTheme(code);
     }
   }, [code, theme])
